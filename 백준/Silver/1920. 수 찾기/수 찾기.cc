@@ -14,7 +14,6 @@ int main()
 	bool bIn = false;
 
 	vector<int> data;
-	vector<int> num;
 	vector<int> result;
 
 	cin >> n;
@@ -31,16 +30,13 @@ int main()
 	for(int j = 0; j < m; j++)
 	{
 		cin >> temp;
-		num.push_back(temp);
 
 		bIn = binary_search(data.begin(), data.end(), temp);
 		result.push_back(bIn);
 	}
 
 	for(auto& Result : result)
-	{
 		cout << Result << '\n';
-	}
 
 	return 0;
 }

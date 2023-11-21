@@ -14,7 +14,7 @@ vector<int> nums;
 void input()
 {
 	cin >> n >> s;
-	nums.resize(n);
+	nums.resize(n + 1);
 
 	for (int i = 0; i < n; i++)
 		cin >> nums[i];
@@ -44,7 +44,7 @@ void solution()
 			start_pos++;
 		}
 
-		if (end_pos == nums.size() || answer == 1)
+		if (end_pos == n || answer == 1)
 			break;
 	}
 

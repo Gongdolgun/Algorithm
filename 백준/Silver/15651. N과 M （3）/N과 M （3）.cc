@@ -1,43 +1,53 @@
-#include <iostream>
 #include <string>
-#include <stdio.h>
+#include <vector>
+#include <algorithm>
+#include <iostream>
+#include <cmath>
+#include <queue>
+#include <stack>
+#include <map>
+#include <set>
+#include <algorithm>
+#include <bitset>
+#include <thread>
+#include <mutex>
+#include <cstring>
+#include <numeric>
+
+#define FASTIO cin.tie(NULL); cout.tie(NULL); ios::sync_with_stdio(false);
+#define INF 98765421
+#define ll long long
 
 using namespace std;
-int n, m;
-int arr[10] = {0, };
-bool check[10] = {0, };
 
-void func(int god)
-{	
-	if (god == m)
+int n, m;
+vector<int> tmp(10);
+vector<bool> visited(10);
+
+void dfs(int cnt)
+{
+	if(cnt == m)
 	{
 		for (int i = 0; i < m; i++)
-		{
-			cout << arr[i] << ' ';
-		}
-		cout << "\n";
+			cout << tmp[i] << ' ';
+
+		cout << '\n';
 		return;
 	}
 
-	for (int i = 1; i <= n; i++)
-	{	
-		if (!check[i])
-		{
-			arr[god] = i;
-			func(god + 1);
-			check[i] = false;
-		}
+	for(int i = 1; i <= n; i++)
+	{
+		tmp[cnt] = i;
+		dfs(cnt + 1);
 	}
 }
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
-	cout.tie(nullptr);
+	FASTIO
 
 	cin >> n >> m;
-	func(0);
+	dfs(0);
 
 	return 0;
 }
